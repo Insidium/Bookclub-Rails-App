@@ -1,0 +1,5 @@
+<h2><%= @author.name%></h2>
+<% @author.books_ordered_by_title.each do |book|%>
+    <p><%=book.title%></p>
+<%end%>
+<p><%=link_to 'Back', :back%></p>

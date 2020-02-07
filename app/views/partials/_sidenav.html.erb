@@ -1,0 +1,9 @@
+<nav class="col-2">
+<h3>Menu</h3>
+    <% if user_signed_in? %>
+        <p><%= link_to "My List", book_list_items_path%></p>
+    <% end %>
+    <p><%= link_to "Home", root_path %></p>
+    <p><%= link_to "Books", books_path %></p>
+    <p><%= link_to "Authors", authors_path %></p>
+</nav>
