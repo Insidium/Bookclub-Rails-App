@@ -5,6 +5,10 @@ class BooksController < ApplicationController
 
     def show
         @book = Book.find(params[:id])
+        @can_add = !BookListItem.contains?(current_user, @book)
     end
 
+    def add
+
+    end
 end
