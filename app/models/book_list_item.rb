@@ -7,8 +7,8 @@ class BookListItem < ApplicationRecord
   end
 
   def self.create_book_list_item(current_user, book)
-    if current_user.books.where(id: book.id).length == 0
-      current_usere.books.push(book)
+    if (current_user.books.where(id: book.id).length == 0)
+      current_user.books.push(book)
       current_user.save
     end
   end

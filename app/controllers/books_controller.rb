@@ -13,7 +13,7 @@ class BooksController < ApplicationController
         current_user.books.push(book)
         if current_user.save
             flash[:notice] = "Success! That book has been added to your list."
-            redirect_to book_list_items_path
+            redirect_to book_list_items_path 
         else
             flash[:alert] = "Oops! There was a problem adding that book to your list."
             redirect_back(fallback_location books_path)
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
         BookListItem.create_book_list_item(current_user, book)
         rescue
             flash[:alert] = "Oops! There was a problem adding that book."
-            redirect_back(fallback_location: books_path)
+            # redirect_back(fallback_location: books_path)
         ensure
             redirect_to book_list_items_path
     end
