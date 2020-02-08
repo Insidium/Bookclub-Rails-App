@@ -20,15 +20,6 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.create_author(first_name, last_name)
-    author = Author.find_author(first_name, last_name)
-    if !author
-      author = Author.new(first_name: first_name, last_name: last_name, id: author.id)
-      author.save
-    end
-    return author
-  end
-
   def self.create_book(title, author, genre)
     book = Book.find_book(title, author_last_name)
     if !book
