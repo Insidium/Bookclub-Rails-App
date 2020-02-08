@@ -1,5 +1,15 @@
 <h1>My Book List</h1>
-
+<%= link_to 'Add a book', new_book_path, class:"btn btn-primary"%>
 <% @books.each do |book| %>
-    <p><%= link_to book.title, book_path(book) %></p>
+    <div class="row">
+        <div class="col">
+            <p><%= link_to book.title, book_path(book) %></p>
+        </div>
+        <div class="col">
+            <p> <%= link_to 'Remove', book, method: "delete"%></p>
+        </div>
+        <div class="col">
+            <p> <%= link_to 'Edit', edit_book_list_item_path(book) %></p>
+        </div>
+    </div>
 <%  end  %>

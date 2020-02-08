@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get "/books/new", to: "books#new", as: "new_book"
   post "/books", to: "books#create"
 
+  # Remove book entry on my list
+  delete "books/:id", to: "book_list_items#destroy"
+
   # Show individual Book
   get "/books/:id", to: "books#show", as: "book"
 
@@ -24,5 +27,10 @@ Rails.application.routes.draw do
 
   #Show booklist items
   get "/mylist", to: "book_list_items#index", as: "book_list_items"
+
+  # Edit for trade
+  get "/mylist/:id/edit", to: "book_list_items#edit", as: "edit_book_list_item"
+  put "/mylist/:id", to: "book_list_items#update"
+  patch "/mylist/:id", to: "book_list_items#update", as: "book_list_item"
 
 end
