@@ -1,5 +1,5 @@
 <h2>Books</h2>
-
+<%= image_tag 'clipart.png', alt:"Open book image"%>
 <%if @books %>
     <% @books.each do |book|%>
         <p><%= link_to book.title, book_path(book) %></p>

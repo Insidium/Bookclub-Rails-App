@@ -14,3 +14,16 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+body {
+    min-height: 100vh;
+    background-image: url(image_path("wallpaper.jpeg"));
+    background-repeat: repeat;
+    background-position: right bottom;
+    background-attachment: fixed;
+}
+
+.container {
+    background-color: #fff;
+    opacity: 95%;
+}
