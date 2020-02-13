@@ -28,7 +28,7 @@ class BooksController < ApplicationController
 
     def create
         author = Author.create_author(params[:book][:first_name], params[:book][:last_name])
-        book = Book.create_book(params[:book][:title], author, params[:book][:genre])
+        book = Book.create_book(params[:book][:title], author, params[:book][:genre], params[:book][:picture])
         BookListItem.create_book_list_item(current_user, book)
         rescue
             flash[:alert] = "Oops! There was a problem adding that book."

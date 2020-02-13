@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :author
+  has_many :book_list_items
   has_many :reviews
+  has_one_attached :picture
 
   def self.order_by_author_title
     books = []
@@ -22,10 +24,11 @@ class Book < ApplicationRecord
     return book
   end
 
-  def self.create_book(title, author, genre)
+  def self.create_book(title, author, genre, picture)
     book = Book.find_book(title, author.last_name)
     if (!book)
       book = Book.new(title: title, genre: genre, author_id: author.id)
+      book.picture.attach(picture)
       book.save
     end
     return book
