@@ -7,6 +7,7 @@ class BooksController < ApplicationController
         @book = Book.find(params[:id])
         @can_add = !BookListItem.contains?(current_user, @book) if user_signed_in?
         @reviews = @book.reviews
+        @rating = Review.get_average_rating(@book)
     end
 
     def add

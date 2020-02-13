@@ -12,9 +12,10 @@
 <hr/>
     <div>
         <h4>Review</h4>
-        <% if user_signed_in %>
+        <% if user_signed_in? %>
         <%= link_to "Add Review", new_review_path(book: @book), class: "btn btn-primary" %>
         <% end %>
+        <p>Overall Rating: <%= @rating %></p>
         <% if @reviews%>
             <% @reviews.each do |review| %>
             <div>
