@@ -33,4 +33,7 @@ Rails.application.routes.draw do
   put "/mylist/:id", to: "book_list_items#update"
   patch "/mylist/:id", to: "book_list_items#update", as: "book_list_item"
 
+  #Create review
+  get "/reviews/new", to: "reviews#new", as: "new_review"
+  post "/reviews/", to: "reviews#create"
 end

@@ -8,4 +8,23 @@
 <% end %>
 <p><%= @book.author.name%></p>
 <p><%= @book.genre%></p>
+
+<hr/>
+    <div>
+        <h4>Review</h4>
+        <% if user_signed_in %>
+        <%= link_to "Add Review", new_review_path(book: @book), class: "btn btn-primary" %>
+        <% end %>
+        <% if @reviews%>
+            <% @reviews.each do |review| %>
+            <div>
+                <p class="rating"><%= "Rating: #{review.rating}" %></p>
+                <p><%= review.user.email %></p>
+                <p><%= review.comment %></p>
+            </div>
+            <% end %>
+        <% end %>
+    </div>
+<hr/>
+
 <p><%= link_to "Back", :back %></p>

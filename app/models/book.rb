@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :author
+  has_many :reviews
 
   def self.order_by_author_title
     books = []
