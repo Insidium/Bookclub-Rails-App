@@ -21,4 +21,8 @@ class OrdersController < ApplicationController
     cancel_url: "#{root_url}",
     )
   end
+
+  def complete
+  end
+
 end

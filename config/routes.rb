@@ -38,4 +38,6 @@ Rails.application.routes.draw do
   #Create review
   get "/reviews/new", to: "reviews#new", as: "new_review"
   post "/reviews/", to: "reviews#create"
+
+  get "/orders/complete", to: "orders#complete"
 end
