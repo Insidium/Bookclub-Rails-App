@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:webhook]
+
   def new
     @book = Book.find(params[:book_id])
     @session = Stripe::Checkout::Session.create(
@@ -23,6 +25,19 @@ class OrdersController < ApplicationController
   end
 
   def complete
+  end
+
+  def webhook
+    payment_id = params[:data][:object][:payment_intent]
+    payment = Stripe::PaymentIntent.retrieve(payment_id)
+
+    book_id = payment.metadata.book_id
+    user_id = payment.metadata.user_id
+
+    p "book id #{book_id}"
+    p "user id #{user_id}"
+
+    render plain: "Success"
   end
 
 end

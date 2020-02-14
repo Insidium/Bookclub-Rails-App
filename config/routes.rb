@@ -39,5 +39,9 @@ Rails.application.routes.draw do
   get "/reviews/new", to: "reviews#new", as: "new_review"
   post "/reviews/", to: "reviews#create"
 
+  #Order complete
   get "/orders/complete", to: "orders#complete"
+
+  #Order Webhook
+  post "/orders/webhook", to: "orders#webhook"
 end
