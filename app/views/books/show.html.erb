@@ -9,7 +9,10 @@
 <% end %>
 <p><%= @book.author.name%></p>
 <p><%= @book.genre%></p>
-<p><%= number_to_currency @book.price %></p>
+<% if @book.price %>
+    <p><%= number_to_currency @book.price %></p>
+    <%= link_to "Buy Now", new_order_path(book_id: @book.id), class: "btn btn-info" %>
+<% end  %>
 <hr/>
     <div>
         <h4>Review</h4>
